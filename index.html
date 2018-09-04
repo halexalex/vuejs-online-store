@@ -10,8 +10,24 @@
 
     <div id="app">
         <h2 @mouseover="onHover">{{ title }}: {{ counter }}</h2>
-        <button @click="addCounter(5, 'Added 5 dinosaurs', $event)">+5</button>
-        <button @click="addCounter(10, 'Added 10 dinosaurs', $event)">+10</button>
+        <button @click.once="addCounter(5, 'Added 5 dinosaurs', $event)">+5</button>
+        <button @click.prevent.self="addCounter(10, 'Added 10 dinosaurs', $event)">+10</button>
+        
+        <hr>
+
+        <h2><a href="https://google.com" target="_blank" @click.prevent>Google</a></h2>
+        
+        <div @scroll.passive="onScroll"></div>
+
+        <!--
+            .stop - stopPropagation()
+            .prevent - preventDefault()
+            .capture
+            .self
+            .once
+            .passive
+        -->
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
