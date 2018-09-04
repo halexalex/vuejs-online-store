@@ -9,25 +9,7 @@
 <body>
 
     <div id="app">
-        <h2 @mouseover="onHover">{{ title }}: {{ counter }}</h2>
-        <button @click.once="addCounter(5, 'Added 5 dinosaurs', $event)">+5</button>
-        <button @click.prevent.self="addCounter(10, 'Added 10 dinosaurs', $event)">+10</button>
-        
-        <hr>
-
-        <h2><a href="https://google.com" target="_blank" @click.prevent>Google</a></h2>
-        
-        <div @scroll.passive="onScroll"></div>
-
-        <!--
-            .stop - stopPropagation()
-            .prevent - preventDefault()
-            .capture
-            .self
-            .once
-            .passive
-        -->
-
+        <input type="text" @keyup.enter.up="alertValue">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
@@ -40,17 +22,8 @@
                 title: 'Counter'
             },
             methods: {
-                addCounter: function(num, str, event) {
-                    this.counter += num
-                    this.title = str
-                    if (num === 5) {
-                        event.target.style.color = 'blue'
-                    } else if (num === 10) {
-                        event.target.style.color = 'red'
-                    }
-                },
-                onHover: function(event) {
-                    event.target.style.color = 'red' 
+                alertValue: function(event) {
+                    alert(event.target.value)
                 }
             }
         });
