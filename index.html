@@ -9,7 +9,10 @@
 <body>
 
     <div id="app">
-        <input type="text" @keyup.enter.up="alertValue">
+        <input type="text" v-model.lazy="inputValue">
+
+        <h2>{{ inputValue }}</h2>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
@@ -18,14 +21,8 @@
         new Vue({
             el: '#app',
             data: {
-                counter: 0,
-                title: 'Counter'
-            },
-            methods: {
-                alertValue: function(event) {
-                    alert(event.target.value)
-                }
-            }
+                inputValue: 'Initial value'
+            }            
         });
     </script>
 </body>
