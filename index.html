@@ -9,13 +9,9 @@
 <body>
 
     <div id="app">
-        <h2><a :href="url">Google</a></h2>
-        <h2>
-            <input type="text" :value="name">
-        </h2>
-        <h2 v-html="markup">
-            
-        </h2>
+        <h2 @mouseover="onHover">Counter: {{ counter }}</h2>
+        <button @click="addCounter">+1</button>
+        <button @click="counter--">-1</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
@@ -24,9 +20,15 @@
         new Vue({
             el: '#app',
             data: {
-                url: 'https://google.com',
-                markup: '<a href="https://google.com">Google</a>',
-                name: 'Alex'
+                counter: 0
+            },
+            methods: {
+                addCounter: function() {
+                    this.counter++
+                },
+                onHover: function(event) {
+                    event.target.style.color = 'red' 
+                }
             }
         });
     </script>
