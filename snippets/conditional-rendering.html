@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+
+       <h1 v-show="isVisible">Visible</h1>
+       <h2 v-show="!isVisible">Not visible!</h2>
+
+       <button @click="isVisible=!isVisible">Toggle</button>
+       
+       <hr>
+
+       <h2 v-if="char === 'a'">A</h2>
+       <h2 v-else-if="char === 'b'">B</h2>
+       <h2 v-else-if="char === 'c'">C</h2>
+       <h2 v-else>Not Matches Found</h2>
+
+       <input type="text" v-model="char">
+
+       <hr>
+
+       <template v-if="isVisible">
+       <h2>Title</h2>
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, sapiente.</p>
+       </template>
+
+       <template v-else>
+       <h2 style="color: red">Title</h2>
+       <p style="color: red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, sapiente.</p>
+       </template>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isVisible: true,
+                char: 'a'
+            }            
+        });
+    </script>
+</body>
+</html>
