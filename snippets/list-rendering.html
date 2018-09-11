@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js</title>
+</head>
+<body>
+
+    <div id="app">
+
+      <ul>
+          <li v-for="(student, index) in students">{{ index + 1 }}. {{ student.name }} - <b>{{ student.age }}</b></li>
+      </ul>
+
+      <hr>
+
+      <span v-for="n in 10">{{ n }}</span>
+
+      <hr>
+
+      <li v-for="(value, key, index) in person"><em>{{ index }} </em><b>{{ key }}</b>: {{ value }}</li>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                students: [
+                {name: 'William', age: 28},
+                {name: 'Edgar', age: 33},
+                {name: 'Howard', age: 22},
+                {name: 'Paul', age: 40},
+                ],
+                person: {
+                    name: 'Alexander',
+                    age: '28', 
+                    city: 'Moscow'
+                }
+            }            
+        });
+    </script>
+</body>
+</html>
