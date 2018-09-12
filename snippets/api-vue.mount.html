@@ -10,53 +10,20 @@
 
     <div id="app">
 
-        <h1>{{ title }}</h1>
-        <h3>{{ newField }}</h3>
-
-    </div>
-
-    <hr>
-
-    <div id="app2">
-
-        <h1>{{ title }}</h1>
-        <button @click="changeFirstTitle">Change</button>
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     
     <script>
-        var vue1 = new Vue({
-            el: '#app',
+        var vue = new Vue({
             data: {
-                title: 'Title one'
+                title: 'Hello Vue!'
             },
-            methods: {
-                alertTest: function() {
-                    alert('I`m from first app!')
-                }
-            }
+            template: '<div><h2>{{ title }}</h2><p>Test</p></div>'
         });
 
-        console.log(vue1)
-        vue1.newField = 'Test'
+        vue.$mount('#app')
 
-        new Vue({
-            el: '#app2',
-            data: {
-                title: 'Title two'
-            },
-            methods: {
-                changeFirstTitle: function() {
-                    vue1.title = "Changed title from second app"
-                    vue1.newField = 'New newField!'
-                    setTimeout(function() {
-                        vue1.alertTest()
-                    }, 1000)
-                }
-            }
-        });
     </script>
 </body>
 </html>
