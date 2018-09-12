@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <h1>{{ title }}</h1>
+        <button @click="title = 'Change Title'">Change</button>
+        <button @click="doDestroy">Destroy</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'Title',
+            },
+            methods: {
+                doDestroy () {
+                    this.$destroy()
+                }
+            },
+            beforeCreate() {
+                console.log('Before create')
+            },
+            created() {
+                console.log('Created')
+            },
+            beforeMount() {
+                console.log('Before mount')
+            },
+            mounted() {
+                console.log('Mounted')
+            },
+            beforeUpdate() {
+                console.log('Before update')
+            },
+            updated() {
+                console.log('Updated')
+            },
+            beforeDestroy() {
+                console.log('Before destroy')
+            },
+            destroyed() {
+                console.log('Destroyed')
+            }
+        });
+    </script>
+</body>
+</html>
