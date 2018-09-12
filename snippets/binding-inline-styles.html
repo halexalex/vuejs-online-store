@@ -15,11 +15,7 @@
 
     <div id="app">
 
-        <!-- <button :class="{'large': fontSize, 'border': border}">{{ title }}</button> -->
-        <!-- <button :class="fontSize ? 'large' : ''">{{ title }}</button> -->
-        <!-- <button :class="[(fontSize ? 'large' : '', {'border': border}]">{{ title }}</button> -->
-        <!-- <button :class="getCss()">{{ title }}</button> -->
-        <button :class="getCss">{{ title }}</button>
+        <button :class="getCss" :style="styles">{{ title }}</button>
 
         <ul>
             <li>
@@ -31,6 +27,16 @@
                 <input type="checkbox" v-model="border">
                 <label for="">Border</label>
             </li>
+
+            <li>
+                <input type="text" v-model="bgColor">
+                <label for="">Background color</label>
+            </li>
+            
+            <li>
+                <input type="range" v-model="range">
+                <label for="">Range</label>
+            </li>
         </ul>
 
     </div>
@@ -38,34 +44,30 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     
     <script>
-        var vue = new Vue({
+        new Vue({
+            el: '#app',
             data: {
                 title: 'test button',
                 fontSize: false,
-                border: false
+                border: false,
+                bgColor: 'orange',
+                range: 20
             },
-            // slower 
-            // methods: {
-            //     getCss () {
-            //         return {
-            //             'large': this.fontSize,
-            //             'border': this.border
-            //         }
-            //     }
-            // }
-            // faster
             computed: {
-                getCss() {
+                getCss () {
                     return {
                         'large': this.fontSize,
                         'border': this.border
                     }
+                },
+                styles () {
+                    return {
+                        'background': this.bgColor,
+                        'margin-left': this.range + '%'
+                    }
                 }
             }
         });
-
-        vue.$mount('#app')
-
     </script>
 </body>
 </html>
