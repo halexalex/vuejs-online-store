@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js</title>
+</head>
+<style>
+    .large { font-size: 50px; }
+    .border { border: 1px solid red; }
+</style>
+
+<body>
+
+    <div id="app">
+
+        <!-- <button :class="{'large': fontSize, 'border': border}">{{ title }}</button> -->
+        <!-- <button :class="fontSize ? 'large' : ''">{{ title }}</button> -->
+        <!-- <button :class="[(fontSize ? 'large' : '', {'border': border}]">{{ title }}</button> -->
+        <!-- <button :class="getCss()">{{ title }}</button> -->
+        <button :class="getCss">{{ title }}</button>
+
+        <ul>
+            <li>
+                <input type="checkbox" v-model="fontSize">
+                <label for="">Font Size</label>
+            </li>
+
+            <li>
+                <input type="checkbox" v-model="border">
+                <label for="">Border</label>
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    
+    <script>
+        var vue = new Vue({
+            data: {
+                title: 'test button',
+                fontSize: false,
+                border: false
+            },
+            // methods: {
+            //     getCss () {
+            //         return {
+            //             'large': this.fontSize,
+            //             'border': this.border
+            //         }
+            //     }
+            // }
+            computed: {
+                getCss() {
+                    return {
+                        'large': this.fontSize,
+                        'border': this.border
+                    }
+                }
+            }
+        });
+
+        vue.$mount('#app')
+
+    </script>
+</body>
+</html>
