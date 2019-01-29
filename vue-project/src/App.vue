@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Parent: {{ pizzaName }}</h1>
-    <app-pizza :pizzaName="pizzaName" :pizzaPrice="pizzaPrice" :pizzaSize="pizzaSize"></app-pizza>
+    <app-pizza :pizzaPrice="pizzaPrice"></app-pizza>
   </div>
 </template>
 
@@ -13,7 +13,6 @@ export default {
     return {
       pizzaName: 'Pepperoni from App.vue',
       pizzaPrice: 7,
-      pizzaSize: 'Medium'
     }
   },
   components: {
