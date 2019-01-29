@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <h1>Parent: {{ pizzaName }}</h1>
-    <app-pizza :pizzaPrice="pizzaPrice"></app-pizza>
+    <app-pizza 
+    :pizzaName="pizzaName"
+    :pizzaPrice="pizzaPrice"
+    :changeFunc="changePizzaName"
+    @nameChanged="pizzaName = $event"></app-pizza>
   </div>
 </template>
 
@@ -13,6 +17,11 @@ export default {
     return {
       pizzaName: 'Pepperoni from App.vue',
       pizzaPrice: 7,
+    }
+  },
+  methods: {
+    changePizzaName() {
+      this.pizzaName = 'Hawaiian'
     }
   },
   components: {
