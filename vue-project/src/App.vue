@@ -1,23 +1,15 @@
 <template>
   <div>
-    <app-pizza>
-      <h2 slot='title'>{{ pizzaName }}</h2>
-      <p slot='text'>Lorem, ipsum dolor.</p>
-    </app-pizza>
+    <h2 v-colored>{{ title }}</h2>
   </div>
 </template>
 
 <script>
-import Pizza from './Pizza.vue'
-
 export default {
   data() {
     return {
-      pizzaName: 'Marinara'
+      title: 'Let`s learn directives!'
     }
-  },
-  components: {
-    appPizza: Pizza
   }
 }
 </script>
