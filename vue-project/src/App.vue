@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h2 v-colored:background="'purple'">{{ title }}</h2>
-    <h2 v-colored:color="'orange'">{{ title }}</h2>
+    <h2>{{ title }}</h2>
+    <h2>{{ title | uppercase }}</h2>
+    <h2>{{ title | snippet }}</h2>
+    <h2>{{ title | snippet | uppercase }}</h2>
   </div>
 </template>
 
@@ -9,7 +11,12 @@
 export default {
   data() {
     return {
-      title: 'Let`s learn directives!'
+      title: 'Let`s learn filters!'
+    }
+  },
+  filters: {
+    uppercase(value) {
+      return value.toUpperCase();
     }
   }
 }
