@@ -1,30 +1,10 @@
 <template>
-  <div>
-    <h2>{{ title }}</h2>
-
-    <input type="text" v-model="search">
-
-    <ul>
-      <li v-for="name in filteredNames" :key="name">{{ name }}</li>
-    </ul>
-
-    <hr>
-
-    <app-list></app-list>
-
+  <div class="container">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import ListMixin from './listMixin'
-export default {
-  data() {
-    return {
-      title: 'Let`s learn filters!',
-    }
-  },
-  mixins: [ListMixin]
-}
 </script>
 
 <style scoped>
